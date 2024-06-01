@@ -1,2 +1,9 @@
 pandas
 datetime
+requests
+boto3
+dotenv
+io
+os
+logging
+snowflake-connector-python
