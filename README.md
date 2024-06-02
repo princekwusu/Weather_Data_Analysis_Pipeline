@@ -1,1 +1,105 @@
-# Data_pipeline
+
+# WEATHER DATA ANALYSIS
+
+Data collected in this project is for London and can be adjusted to suit needs.
+
+## PROJECT OVERVIEW
+
+The WEATHER DATA ANALYSIS System is designed to support business decision-making by collecting, storing, and analyzing weather forecast data and historical weather forecast data, specifically for London. This system automates the process of fetching weather data from OpenWeather, persisting it in Amazon S3, and storing it within a dedicated forecast data table. Once the forecast data expires, it is moved into a table dedicated to store historical weather forecast data in a data warehouse. The primary goal of this project is to provide actionable insights from both current forecast data and historical weather data. These insights will help optimize operations, improve planning, and enhance overall business performance.
+
+## Data Description
+
+This project utilizes weather forecast data from OpenWeather. The dataset contains weather predictions for London, covering a period of five days from the date of extraction. The data is updated regularly and provides a comprehensive view of the weather conditions expected in the near future. Below are the descriptions of the fields included in the dataset:
+
+- DATETIME: The date and time when the weather forecast was recorded.
+- DAY_NAME: The name of the day (e.g., Monday, Tuesday) corresponding to the forecast.
+- MONTH_NAME: The name of the month during which the forecast is made.
+- TEMPERATURE: The predicted temperature in degrees Celsius.
+- FEELS_LIKE: The "feels like" temperature in degrees Celsius.
+- DESCRIPTION: A textual description of the weather conditions.
+- PRESSURE: The atmospheric pressure in hectopascals.
+- HUMIDITY: The relative humidity as a percentage.
+- WINDSPEED: The speed of the wind in meters per second.
+- WIND_DIRECTION: The direction from which the wind is blowing, in degrees.
+- CLOUDINESS: The percentage of cloud cover in the sky.
+- PRECIPITATION: The amount of precipitation (rainfall) expected, measured in millimeters.
+
+This dataset is crucial for analyzing weather trends, understanding the impact of weather on various activities, and making informed business decisions based on weather forecasts.
+
+## Usefulness Of Project In Some Target Industries
+
+The weather forecast data collected from OpenWeather is of paramount importance to various businesses, particularly those whose operations and strategies are highly dependent on weather data. Below are some targeted industries where this project is relevant:
+
+- Agriculture
+- Clothing and Apparel Industry
+- Supply Chain and Logistics
+
+## Analysis
+
+The analysis of this data provides actionable insights that can help businesses optimize their operations and strategic planning. Here are some key analyses that have been performed:
+
+1. Temperature Trends
+   - Objective: Determining average daily temperature and how it changes over the forecast period.
+   - Analysis: A plot of temperature and feels-like temperature to observe trends and anomalies.
+
+2. Weather Conditions Frequency
+   - Objective: Determining the frequency of different weather conditions.
+   - Analysis: A bar chart to visualize the distribution of weather descriptions.
+
+3. Correlation Analysis
+   - Objective: Understanding the relationship between different weather variables.
+   - Analysis: A correlation heatmap to identify significant correlations.
+
+4. Impact on Humidity and Cloudiness
+   - Objective: Analysis on how humidity and cloudiness vary with time.
+   - Analysis: A plot of these variables to observe trends and potential impacts on outdoor activities and energy needs.
+
+5. Precipitation and Wind Analysis
+   - Analysis: Use trend lines and scatter plots to visualize the data and understand patterns.
+
+6. Pressure Analysis
+   - Objective: Determining atmospheric pressure trends to predict weather changes.
+   - Analysis: Plot pressure data over time to observe trends and anomalies.
+
+## DATA WORKFLOW
+
+The London weather data is extracted from the OpenWeather API and persisted in Amazon S3, with each file saved using the datetime of extraction for version control and traceability. Snowpipe is configured to automatically load this data from S3 into a forecast table in Snowflake whenever a new file is uploaded to the specified S3 location. This ensures that the latest weather forecast data is continuously ingested into Snowflake. As the forecast data expires (typically after five days), a Python script is executed to migrate the expired data from the forecast table to a historical_forecast table in Snowflake, maintaining a clean and current forecast table while preserving historical data for analysis to see how weather has impacted business. Apache Airflow is employed to automate these processes: it schedules the periodic extraction of weather data, saves it to S3, and handles the migration of expired forecast data. For analysis and visualization, Python libraries such as Pandas and Matplotlib are utilized to perform initial data analysis, creating visualizations of trends and patterns. Additionally, Power BI is connected to the Snowflake tables to provide advanced, interactive visualizations. These tools offer business users insightful dashboards and reports, enabling them to make informed decisions based on the weather data. This streamlined workflow from extraction to analysis ensures that weather data is effectively managed and leveraged for business intelligence.
+
+
+## Tools Used
+
+1. Python: Used for extracting, processing, and analyzing weather data from the OpenWeather API.
+2. Apache Airflow: Running on Docker, it automates data extraction, storage, and migration processes.
+3. Docker: Provides a containerized environment for running Apache Airflow.
+4. Amazon S3: Serves as the storage solution for weather data files with timestamped filenames.
+5. Snowflake: Acts as the data warehouse, storing both weather forecast and historical weather forecast data.
+6. Snowpipe: Automatically loads data from S3 into Snowflake table.
+7. SQL: Used for defining and managing data within Snowflake.
+
+
+## USER GUIDE
+
+1. Ensure all tools mentioned here "Tools Used" are in place, well-configured, and have the necessary access credentials.
+2. Copy and paste content of 'db modelling.sql' in Snowflake worksheet. Execute the scripts to have all tables and schemas created.
+3. Clone repository [repo link](https://github.com/princekwusu/Weather_Data_Pipeline.git).
+4. Navigate to directory 'cd Weather_Data_Pipeline'.
+5. Access dags/src/.env to update all the credentials needed.
+6. Install requirement 'pip install -r requirements.txt'.
+7. Start the airflow container using 'docker compose up -d' or follow this [link](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) to see how to get airflow running on docker.
+8. Access the webserver at https://localhost:8080.
+9. Login using the default credentials (Username: airflow, Password: airflow).
+10. Trigger DAG manually.
+11. Monitor the airflow UI for task execution and check logs for any errors.
+12. Verify data ingestion in Snowflake tables using SQL query statement "select * from weatherdata.weather.forecast" and "select * from weatherdata.weather.historical_forecast".
+
+## CONCLUSION
+
+In conclusion, the WEATHER DATA ANALYSIS project is a vital tool for any weather-dependent business. It harnesses the power of modern data engineering and analytics to transform weather forecasts data and historical weather forecast data into actionable business intelligence, driving smarter decisions and more efficient operations.
+
+## CONTRIBUTION
+
+Pull requests and suggestions are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+## LICENSE
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
