@@ -1,4 +1,6 @@
 pandas
+seaborn
+matplotlib
 datetime
 requests
 boto3
