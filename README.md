@@ -92,36 +92,50 @@ The London weather data is extracted from the OpenWeather API and persisted in A
 
 # USER GUIDE
 
-1. Ensure all tools mentioned in the "Tools Used" section are in place, well-configured, and have the necessary access credentials.
-2. Copy and paste the content of 'db modelling.sql' into the Snowflake worksheet. Execute the scripts to create all tables and schemas.
-3. Clone the repository:
+1. Ensure all tools mentioned in the "Tools Used" section are in place, well-configured, and have the necessary access privileges.
+2. Login to AWS ,create a bucket and a folder within the bucket for data storage.
+3. Ensure all access keys and other credentials are available and securely stored. Required credentials include:
+   - `AWS_ACCESS_KEY_ID`:  AWS access key ID
+   - `AWS_SECRET_ACCESS_KEY`:  AWS secret access key
+   - `API_KEY`:  OpenWeather API key
+   - `s3_bucket`: Name of  Amazon S3 bucket
+   - `s3_folder`: Name of the folder within the S3 bucket
+   - `SNOWFLAKE_ACCOUNT`:  Snowflake account ID  eg.xxxxxx-yyyyyyyy
+   - `SNOWFLAKE_USER`:  Snowflake username
+   - `SNOWFLAKE_PASSWORD`:  Snowflake account password
+   - `SNOWFLAKE_ROLE`:  Snowflake role
+   - `SNOWFLAKE_WAREHOUSE`: Name of  Snowflake warehouse
+   - `SNOWFLAKE_DATABASE`: Name of the Snowflake database
+   - `SNOWFLAKE_SCHEMA`: Name of the Snowflake schema housing the weather data
+4. Copy and paste the content of 'db modelling.sql' into the Snowflake worksheet. Execute the scripts to create all tables and schemas.
+5. Clone the repository:
     ```bash
     git clone https://github.com/princekwusu/Weather_Data_Pipeline.git
     ```
-4. Navigate to the directory:
+6. Navigate to the directory:
     ```bash
     cd Weather_Data_Pipeline
     ```
-5. Access `dags/src/.env` to update all the necessary credentials.
-6. Install the required packages:
+7. Access `dags/src/.env` to update all the necessary credentials.
+8. Install the required packages:
     ```bash
     pip install -r requirements.txt
     ```
-7. Start the Airflow container:
+9. Start the Airflow container:
     ```bash
     docker compose up -d
     ```
     Or follow this [link](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) to see how to get Airflow running on Docker.
-8. Access the webserver at [http://localhost:8080](http://localhost:8080).
-9. Login using the default credentials (Username: `airflow`, Password: `airflow`).
-10. Trigger the DAG manually.
-11. Monitor the Airflow UI for task execution and check logs for any errors.
-12. Verify data ingestion in Snowflake tables using SQL queries:
+10. Access the webserver at [http://localhost:8080](http://localhost:8080).
+11. Login using the default credentials (Username: `airflow`, Password: `airflow`).
+12. Trigger the DAG manually.
+13. Monitor the Airflow UI for task execution and check logs for any errors.
+14. Verify data ingestion in Snowflake tables using SQL queries:
     ```sql
     SELECT * FROM weatherdata.weather.forecast;
     SELECT * FROM weatherdata.weather.historical_forecast;
     ```
-
+15. Considering the analysis, access `dags/src/analysis.ipynb` to execute the scripts in the cells or adjust the scripts to suite needs.
 
 ## CONCLUSION
 
