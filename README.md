@@ -107,7 +107,7 @@ The London weather data is extracted from the OpenWeather API and persisted in A
    - `SNOWFLAKE_WAREHOUSE`: Name of  Snowflake warehouse
    - `SNOWFLAKE_DATABASE`: Name of the Snowflake database
    - `SNOWFLAKE_SCHEMA`: Name of the Snowflake schema housing the weather data
-4. Copy and paste the content of 'db modelling.sql' into the Snowflake worksheet. Execute the scripts to create all tables and schemas.
+4. Copy and paste the content of `db modelling.sql` into the Snowflake worksheet. Execute the scripts to create all tables and schemas.
 5. Clone the repository:
     ```bash
     git clone https://github.com/princekwusu/Weather_Data_Pipeline.git
