@@ -30,9 +30,22 @@ This dataset is crucial for analyzing weather trends, understanding the impact o
 
 The weather forecast data collected from OpenWeather is of paramount importance to various businesses, particularly those whose operations and strategies are highly dependent on weather data. Below are some targeted industries where this project is relevant:
 
-- Agriculture
-- Clothing and Apparel Industry
-- Supply Chain and Logistics
+1. Agriculture
+   - **Crop Planning:** Use temperature, humidity, and precipitation data to decide the best times for planting and harvesting, ensuring optimal   crop yield.
+   - **Pest and Disease Control:** Plan for potential pest infestations that might increase with certain weather conditions, such as high humidity or temperature changes.
+   - **Irrigation Management:** Adjust irrigation schedules based on precipitation forecasts to conserve water and ensure crops receive adequate hydration.
+
+2. Clothing and Apparel Industry
+   - **Seasonal Inventory Management:** Utilize temperature and weather descriptions to predict demand for seasonal clothing, such as jackets in colder weather or lighter apparel during warm periods.
+   - **Marketing and Promotions:** Align promotional campaigns with the forecast, such as discounts on rain gear during expected precipitation periods or summer collections during warm weather forecasts.
+   - **Production Planning:** Schedule production runs for seasonal clothing items based on weather forecasts, ensuring timely availability of high-demand items.
+
+3. Supply Chain and Logistics
+   - **Stock Management:** Adjust inventory based on weather forecasts to meet expected demand for specific products, ensuring sufficient stock during peak demand periods.
+   - **Delivery and Logistics:** Optimize delivery routes and schedules by considering wind speed, precipitation, and other weather conditions to avoid delays and ensure timely delivery.
+   - **Fleet Management:** Prepare vehicles for expected weather conditions, ensuring maintenance and readiness for adverse weather to minimize disruptions.
+   - **Warehouse Operations:** Adjust warehouse operations, such as heating and cooling systems, based on temperature and humidity forecasts to maintain optimal storage conditions.
+
 
 ## Analysis
 
@@ -77,20 +90,38 @@ The London weather data is extracted from the OpenWeather API and persisted in A
 7. SQL: Used for defining and managing data within Snowflake.
 
 
-## USER GUIDE
+# USER GUIDE
 
-1. Ensure all tools mentioned here "Tools Used" are in place, well-configured, and have the necessary access credentials.
-2. Copy and paste content of 'db modelling.sql' in Snowflake worksheet. Execute the scripts to have all tables and schemas created.
-3. Clone repository [repo link](https://github.com/princekwusu/Weather_Data_Pipeline.git).
-4. Navigate to directory 'cd Weather_Data_Pipeline'.
-5. Access dags/src/.env to update all the credentials needed.
-6. Install requirement 'pip install -r requirements.txt'.
-7. Start the airflow container using 'docker compose up -d' or follow this [link](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) to see how to get airflow running on docker.
-8. Access the webserver at https://localhost:8080.
-9. Login using the default credentials (Username: airflow, Password: airflow).
-10. Trigger DAG manually.
-11. Monitor the airflow UI for task execution and check logs for any errors.
-12. Verify data ingestion in Snowflake tables using SQL query statement "select * from weatherdata.weather.forecast" and "select * from weatherdata.weather.historical_forecast".
+1. Ensure all tools mentioned in the "Tools Used" section are in place, well-configured, and have the necessary access credentials.
+2. Copy and paste the content of 'db modelling.sql' into the Snowflake worksheet. Execute the scripts to create all tables and schemas.
+3. Clone the repository:
+    ```bash
+    git clone https://github.com/princekwusu/Weather_Data_Pipeline.git
+    ```
+4. Navigate to the directory:
+    ```bash
+    cd Weather_Data_Pipeline
+    ```
+5. Access `dags/src/.env` to update all the necessary credentials.
+6. Install the required packages:
+    ```bash
+    pip install -r requirements.txt
+    ```
+7. Start the Airflow container:
+    ```bash
+    docker compose up -d
+    ```
+    Or follow this [link](https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html) to see how to get Airflow running on Docker.
+8. Access the webserver at [http://localhost:8080](http://localhost:8080).
+9. Login using the default credentials (Username: `airflow`, Password: `airflow`).
+10. Trigger the DAG manually.
+11. Monitor the Airflow UI for task execution and check logs for any errors.
+12. Verify data ingestion in Snowflake tables using SQL queries:
+    ```sql
+    SELECT * FROM weatherdata.weather.forecast;
+    SELECT * FROM weatherdata.weather.historical_forecast;
+    ```
+
 
 ## CONCLUSION
 
