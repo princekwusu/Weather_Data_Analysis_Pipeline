@@ -68,7 +68,7 @@ The London weather data is extracted from the OpenWeather API and persisted in A
 
 ## Tools Used
 
-1. Python: Used for extracting, processing, and analyzing weather data from the OpenWeather API.
+1. Python with version 3.10.11: Used for extracting, processing, and analyzing weather data from the OpenWeather API.
 2. Apache Airflow: Running on Docker, it automates data extraction, storage, and migration processes.
 3. Docker: Provides a containerized environment for running Apache Airflow.
 4. Amazon S3: Serves as the storage solution for weather data files with timestamped filenames.
