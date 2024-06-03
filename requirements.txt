@@ -1,11 +1,11 @@
-pandas
-seaborn
-matplotlib
+Pandas 2.2.1
+Seaborn 0.13.2
+Matplotlib 3.7.2
 datetime
-requests
-boto3
+Requests 2.31.0
+Boto3 1.34.115
 dotenv
 io
 os
-logging
-snowflake-connector-python
+Logging 0.5.1.2
+Snowflake Connector 3.10.1
