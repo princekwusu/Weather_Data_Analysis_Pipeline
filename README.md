@@ -112,20 +112,20 @@ The London weather data is extracted from the OpenWeather API and persisted in A
    - `SNOWFLAKE_SCHEMA`: Name of the Snowflake schema housing the weather data
   
 4. Terraform Setup:
-  - Update `terraform.tfvars` with the neccessary credentials for creating the s3 storage and snowflake warehouse.
-  - Run the following commands one by one:
-   ```bash
-   terraform init
-   ```
-   ```bash
-   terraform validate
-   ```
-   ```bash
-   terraform plan
-   ```
-   ```bash
-   terraform apply
-   ```     
+     - Update `terraform.tfvars` with the neccessary credentials for creating the s3 storage and snowflake warehouse.
+     - Run the following commands one by one:
+      ```bash
+      terraform init
+      ```
+      ```bash
+      terraform validate
+      ```
+      ```bash
+      terraform plan
+      ```
+      ```bash
+      terraform apply
+      ```     
 
 5. Copy and paste the content of `db modelling.sql` into the Snowflake worksheet. Execute the scripts to create all tables and schemas.
    
