@@ -57,7 +57,7 @@ CREATE OR REPLACE STAGE weatherdata.external_stage.weather_ext_stage
 
 
 
-list @weatherdata.external_stage.weather_ext_stage;
+--list @weatherdata.external_stage.weather_ext_stage;
 
 
 --pipe schema creation
@@ -70,4 +70,4 @@ AS
 COPY INTO weatherdata.weather.forecast
 FROM @weatherdata.external_stage.weather_ext_stage;
 
-desc pipe weatherdata.weatherpipe.datapipe;
+--desc pipe weatherdata.weatherpipe.datapipe;
