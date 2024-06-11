@@ -10,6 +10,7 @@ The WEATHER DATA ANALYSIS System is designed to support business decision-making
 ![system_design](images/system_design.jpg)
 
 
+
 ![system_design](images/warehouse_design.jpg)
 
 
