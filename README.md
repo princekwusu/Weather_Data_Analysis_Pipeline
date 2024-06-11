@@ -154,7 +154,7 @@ The London weather data is extracted from the OpenWeather API and persisted in A
    desc pipe weatherdata.weatherpipe.datapipe;
    ```
 
-6.  Access `dags/src/.env` to update all the necessary credentials.
+6.  Access `airflow/dags/src/.env` to update all the necessary credentials.
    
 7.  Install the required packages.Ensure you are in the main project directory before running the command below.
     ```bash
