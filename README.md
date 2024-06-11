@@ -5,7 +5,9 @@ Data collected in this project is for London and can be adjusted to suit needs.
 
 ## PROJECT OVERVIEW
 
-The WEATHER DATA ANALYSIS System is designed to support business decision-making by collecting, storing, and analyzing weather forecast data and historical weather forecast data, specifically for London. This system automates the process of fetching weather data from OpenWeather, persisting it in Amazon S3, and storing it within a dedicated forecast data table. Once the forecast data expires, it is moved into a table dedicated to store historical weather forecast data in a data warehouse. The primary goal of this project is to provide actionable insights from both current forecast data and historical weather data. These insights will help optimize operations, improve planning, and enhance overall business performance.
+The WEATHER DATA ANALYSIS System is designed to support business decision-making by collecting, storing, and analyzing weather forecast data and historical weather forecast data, specifically for London. This system automates the process of fetching weather data from OpenWeather, persisting it in Amazon S3, and storing it within a dedicated forecast data table. Once the forecast data expires, it is moved into a table dedicated to store historical weather forecast data in the data warehouse. The primary goal of this project is to provide actionable insights from both current forecast data and historical weather data. These insights will help optimize operations, improve planning, and enhance overall business performance.
+
+![system_design][images/system_design]
 
 ## Data Description
 
