@@ -8,6 +8,8 @@ Data collected in this project is for London and can be adjusted to suit needs.
 The WEATHER DATA ANALYSIS System is designed to support business decision-making by collecting, storing, and analyzing weather forecast data and historical weather forecast data, specifically for London. This system automates the process of fetching weather data from OpenWeather, persisting it in Amazon S3, and storing it within a dedicated forecast data table. Once the forecast data expires, it is moved into a table dedicated to store historical weather forecast data in the data warehouse. The primary goal of this project is to provide actionable insights from both current forecast data and historical weather data. These insights will help optimize operations, improve planning, and enhance overall business performance.
 
 ![system_design](images/system_design.jpg)
+![system_design](images/warehouse_design.jpg)
+
 
 ## Data Description
 
@@ -143,7 +145,7 @@ The London weather data is extracted from the OpenWeather API and persisted in A
       terraform apply
       ```     
 
-4. Copy and paste the content of `db modelling.sql` into the Snowflake worksheet. Execute the scripts to create all tables and schemas.
+4. Copy and paste the content of `warehouse_dev.sql` into the Snowflake worksheet. Execute the scripts to create all tables and schemas.
    
 5. Create an sqs event in the s3 file location using the `notification_channel`  value produced after describing the pipe in the warehouse.Use the command below to describe the pipe created.
    ```bash
