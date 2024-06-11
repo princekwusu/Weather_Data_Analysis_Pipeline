@@ -76,6 +76,9 @@ The analysis of this data provides actionable insights that can help businesses 
    - Objective: Determining atmospheric pressure trends to predict weather changes.
    - Analysis: Plot pressure data over time to observe trends and anomalies.
 
+![dashboard](images/bi_dashboard.jpg)
+
+
 ## DATA WORKFLOW
 
 The London weather data is extracted from the OpenWeather API and persisted in Amazon S3, with each file saved using the datetime of extraction for version control and traceability. Snowpipe is configured to automatically load this data from S3 into a forecast table in Snowflake whenever a new file is uploaded to the specified S3 location. This ensures that the latest weather forecast data is continuously ingested into Snowflake. As the forecast data expires (typically after five days), a Python script is executed to migrate the expired data from the forecast table to a historical_forecast table in Snowflake, maintaining a clean and current forecast table while preserving historical data for analysis to see how weather has impacted business. Apache Airflow is employed to automate these processes: it schedules the periodic extraction of weather data, saves it to S3, and handles the migration of expired forecast data. For analysis and visualization, Python libraries such as Pandas and Matplotlib are utilized to perform initial data analysis, creating visualizations of trends and patterns. Additionally, Power BI is connected to the Snowflake tables to provide advanced, interactive visualizations. These tools offer business users insightful dashboards and reports, enabling them to make informed decisions based on the weather data. This streamlined workflow from extraction to analysis ensures that weather data is effectively managed and leveraged for business intelligence.
