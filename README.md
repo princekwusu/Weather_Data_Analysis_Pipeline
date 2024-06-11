@@ -76,7 +76,7 @@ The analysis of this data provides actionable insights that can help businesses 
    - Objective: Determining atmospheric pressure trends to predict weather changes.
    - Analysis: Plot pressure data over time to observe trends and anomalies.
 
-![dashboard](images/bi_dashboard.jpg)
+![dashboard](images/bi_dashboard.png)
 
 
 ## DATA WORKFLOW
